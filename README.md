@@ -15,3 +15,4 @@ Things I want:
 - collapsing?
 - diff coloring
 - variables (like client DSN in sentry docs - only swaps them out if variable given, obvious styling, list dropdown if variable is an array)
+- variables with prompt/input (ex. project name)
