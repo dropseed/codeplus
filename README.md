@@ -10,7 +10,7 @@ Things I want:
 - tabs (sibling `pre>code` with same group identifier - maybe `// filename.js - Adding x to y example`)
 - language switcher (sibling `pre>code` with same filename but different lang)
 - light/dark mode toggle?
-- walkthrough (highlight line like Stripe docs) (`Step 1: ...`)
+- walkthrough (highlight line like Stripe docs, hover on https://webauthn.guide/) (`Step 1: ...`)
 - copy/paste button (and on "steps")
 - collapsing?
 - diff coloring
