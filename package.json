@@ -12,7 +12,7 @@
     "build": "rm -rf dist && parcel build browser.js",
     "watch": "parcel watch browser.js",
     "format": "prettier --write *.js",
-    "pre-commit": "prettier --check *.js",
+    "pre-commit": "prettier --check *.js && npm run test",
     "test": "jest"
   },
   "devDependencies": {
