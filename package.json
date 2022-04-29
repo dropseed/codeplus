@@ -11,11 +11,21 @@
   "scripts": {
     "build": "rm -rf dist && parcel build browser.js",
     "watch": "parcel watch browser.js",
-    "format": "prettier --write browser.js",
-    "pre-commit": "prettier --check *.js"
+    "format": "prettier --write *.js",
+    "pre-commit": "prettier --check *.js",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "babel-jest": "^28.0.3",
+    "jest": "^28.0.3",
     "parcel": "^2.5.0",
     "prettier": "^2.6.2"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }
