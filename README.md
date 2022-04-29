@@ -107,6 +107,7 @@ window.addEventListener('load', function() {
 window.addEventListener("load", function() {
     new Codeplus({}).render();
 });
+</script>
 ```
 
 ## Options
