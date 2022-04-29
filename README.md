@@ -60,6 +60,11 @@ With codeplus:
 
 <img width="711" alt="CleanShot 2022-04-29 at 12 25 36@2x" src="https://user-images.githubusercontent.com/649496/165993539-b8f5a86f-d5e6-4ae4-a038-e8c11ebaf75f.png">
 
+
+The copy/paste button is added to all code blocks by default (shown on hover in this example):
+
+<img width="715" alt="CleanShot 2022-04-29 at 12 26 55@2x" src="https://user-images.githubusercontent.com/649496/165993684-2ddd8770-1741-4222-8d88-1abeaa885185.png">
+
 ## Installation
 
 ```sh
@@ -73,11 +78,6 @@ window.addEventListener('load', function() {
     new Codeplus({}).render();
 });
 ```
-
-The copy/paste button is added to all code blocks by default (shown on hover in this example):
-
-<img width="715" alt="CleanShot 2022-04-29 at 12 26 55@2x" src="https://user-images.githubusercontent.com/649496/165993684-2ddd8770-1741-4222-8d88-1abeaa885185.png">
-
 
 ### CDN
 
