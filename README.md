@@ -18,7 +18,7 @@ you get an extra layer of interactivity just by adding `codeplus` on top.
 This library does not do syntax highlighting!
 That means you can use any server-side (or client-side) syntax highlighter you want and codeplus will add the interactive features after the fact.
 
-To render filenames all you need to do is start your code block with a comment line that starts with `# <filename>:`
+To render filenames all you need to do is start your code block with a comment line that says the filename:
 
 ```yaml
 # .pullapprove.yml
