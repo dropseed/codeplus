@@ -38,7 +38,7 @@ When codeplus runs, you'll get something like this:
 
 ### Tab display name
 
-You can also change the display name by using parentheses after the filename:
+You can also change the display name by using parentheses after the filename (or by starting with parenetheses):
 
 ```yaml
 # .pullapprove.yml (GitHub)

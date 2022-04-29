@@ -8,7 +8,7 @@ export default function parse(code) {
   }
 
   if (commentContents) {
-    let regex = /(\S+\.\S+)\s*(\(([^\)]+)\))?\s*(-\s+(.+))?/;
+    let regex = /(\S+\.\S+)?\s*(\(([^\)]+)\))?\s*(-\s+(.+))?/;
     let match = regex.exec(commentContents);
 
     if (match) {

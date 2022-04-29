@@ -9,6 +9,16 @@ test("parse filename", () => {
   });
 });
 
+
+test("parse display without filename", () => {
+  const parsed = parse("# (GitHub with spaces)\nfunction foo() {}");
+  expect(parsed).toEqual({
+    filename: "",
+    displayName: "GitHub with spaces",
+    groupName: "",
+  });
+});
+
 test("parse filename and display", () => {
   const parsed = parse("# filename.js (GitHub with spaces)\nfunction foo() {}");
   expect(parsed).toEqual({
