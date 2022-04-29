@@ -1,4 +1,9 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import parse from "./parse";
+import {CodeplusInstance} from "./index"
 
 test("parse filename", () => {
   const parsed = parse("# filename.js\nfunction foo() {}");
@@ -43,4 +48,26 @@ test("parse filename, display, group", () => {
     displayName: "GitHub with spaces",
     groupName: "group example",
   });
+});
+
+test("nav with filename", () => {
+  const node = document.createElement("code");
+  const instance = new CodeplusInstance(node, {});
+  instance.filename = "filename.js";
+  expect(instance.getNavName()).toEqual("filename.js");
+});
+
+test("nav with display name", () => {
+  const node = document.createElement("code");
+  const instance = new CodeplusInstance(node, {});
+  instance.displayName = "Test";
+  expect(instance.getNavName()).toEqual("Test");
+});
+
+test("nav with filename and display", () => {
+  const node = document.createElement("code");
+  const instance = new CodeplusInstance(node, {});
+  instance.filename = "filename.js";
+  instance.displayName = "Test";
+  expect(instance.getNavName()).toEqual("filename.js (Test)");
 });

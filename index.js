@@ -16,9 +16,9 @@ const css = `
 }
 `;
 
-class CodeplusInstance {
+export class CodeplusInstance {
   constructor(node, options) {
-    if (node.parentNode.tagName === "PRE") {
+    if (node.parentNode && node.parentNode.tagName === "PRE") {
       // Automatically detect if we're in a pre tag
       this.containerNode = node.parentNode;
     } else {
@@ -35,18 +35,23 @@ class CodeplusInstance {
     this.copyButtonClass = options.copyButtonClass;
     this.renderCopyButton = options.renderCopyButton;
 
-    const parsed = parse(this.codeNode.innerText);
+    const parsed = parse(this.codeNode.innerText || "");
 
     this.filename = parsed.filename;
     this.displayName = parsed.displayName;
     this.groupName = parsed.groupName;
   }
   getNavName() {
-    if (this.displayName) {
-      return this.displayName;
-    } else if (this.filename) {
+    if (this.filename && this.displayName) {
+      return `${this.filename} (${this.displayName})`;
+    }
+    if (this.filename) {
       return this.filename;
     }
+    if (this.displayName) {
+      return this.displayName;
+    }
+    return "";
   }
   hasNav() {
     return this.filename || this.displayName || this.groupName;
