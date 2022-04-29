@@ -9,6 +9,14 @@ test("parse filename", () => {
   });
 });
 
+test("parse filename multiple dots", () => {
+  const parsed = parse("# test.filename.template.js\nfunction foo() {}");
+  expect(parsed).toEqual({
+    filename: "test.filename.template.js",
+    displayName: "",
+    groupName: "",
+  });
+});
 
 test("parse display without filename", () => {
   const parsed = parse("# (GitHub with spaces)\nfunction foo() {}");
