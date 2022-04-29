@@ -8,14 +8,13 @@ export default function parse(code) {
   }
 
   if (commentContents) {
-    let regex = /(\S+\.\S+)?\s*(\(([^\)]+)\))?\s*(-\s+(.+))?/;
+    let regex = /^(\S+\.\S+)?\s*(\(([^\)]+)\))?/;
     let match = regex.exec(commentContents);
 
     if (match) {
       return {
         filename: match[1] || "",
         displayName: match[3] || "",
-        groupName: match[5] || "",
       };
     }
   }
@@ -23,6 +22,5 @@ export default function parse(code) {
   return {
     filename: "",
     displayName: "",
-    groupName: "",
   };
 }

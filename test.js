@@ -10,7 +10,6 @@ test("parse filename", () => {
   expect(parsed).toEqual({
     filename: "filename.js",
     displayName: "",
-    groupName: "",
   });
 });
 
@@ -19,7 +18,6 @@ test("parse filename multiple dots", () => {
   expect(parsed).toEqual({
     filename: "test.filename.template.js",
     displayName: "",
-    groupName: "",
   });
 });
 
@@ -28,27 +26,16 @@ test("parse display without filename", () => {
   expect(parsed).toEqual({
     filename: "",
     displayName: "GitHub with spaces",
-    groupName: "",
   });
 });
 
 test("parse filename and display", () => {
-  const parsed = parse("# filename.js (GitHub with spaces)\nfunction foo() {}");
-  expect(parsed).toEqual({
-    filename: "filename.js",
-    displayName: "GitHub with spaces",
-    groupName: "",
-  });
-});
-
-test("parse filename, display, group", () => {
   const parsed = parse(
-    "# filename.js (GitHub with spaces) - group example\nfunction foo() {}"
+    "# filename.js (GitHub with spaces) - more here\nfunction foo() {}"
   );
   expect(parsed).toEqual({
     filename: "filename.js",
     displayName: "GitHub with spaces",
-    groupName: "group example",
   });
 });
 

@@ -39,7 +39,6 @@ export class CodeplusInstance {
 
     this.filename = parsed.filename;
     this.displayName = parsed.displayName;
-    this.groupName = parsed.groupName;
   }
   getNavName() {
     if (this.filename && this.displayName) {
@@ -62,7 +61,7 @@ export class CodeplusInstance {
     return this.filename;
   }
   hasNav() {
-    return this.filename || this.displayName || this.groupName;
+    return this.filename || this.displayName;
   }
   render() {
     // Yank the first line if we got something from it
@@ -284,19 +283,28 @@ class Codeplus {
       )
     );
   }
-  getGroups(nodes) {
-    const groups = {};
-    const singleNodes = [];
-    nodes.forEach((node) => {
-      if (node.groupName) {
-        if (!groups[node.groupName]) {
-          groups[node.groupName] = [];
-        }
-        groups[node.groupName].push(node);
+  getGroups(instances) {
+    // Group by direct siblings
+    let groups = [];
+    let group = [];
+    for (let i = 0; i < instances.length; i++) {
+      if (group.length === 0) {
+        group.push(instances[i]);
       } else {
-        singleNodes.push(node);
+        console.log(instances[i].containerNode.previousElementSibling);
+        if (
+          instances[i].containerNode.previousElementSibling ===
+          group[group.length - 1].containerNode
+        ) {
+          group.push(instances[i]);
+        } else {
+          groups.push(group);
+          group = [];
+          group.push(instances[i]);
+        }
       }
-    });
+    }
+    groups.push(group);
 
     const groupOptions = {
       // Classes
@@ -314,11 +322,9 @@ class Codeplus {
       onRememberTabSelection: this.onRememberTabSelection.bind(this),
     };
 
-    const codeGroups = Object.keys(groups)
-      .map((key) => new CodeplusGroup(groups[key], groupOptions))
-      .concat(
-        singleNodes.map((node) => new CodeplusGroup([node], groupOptions))
-      );
+    const codeGroups = groups.map(
+      (instances) => new CodeplusGroup(instances, groupOptions)
+    );
 
     if (debug) console.log("Codeplus groups", codeGroups);
 
