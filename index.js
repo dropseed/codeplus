@@ -53,6 +53,14 @@ export class CodeplusInstance {
     }
     return "";
   }
+  getRememberName() {
+    // Only want to remember the display name if there is one
+    // so that `filename.js (GitHub)` syncs with `another.js (GitHub)`
+    if (this.displayName) {
+      return this.displayName;
+    }
+    return this.filename;
+  }
   hasNav() {
     return this.filename || this.displayName || this.groupName;
   }
@@ -133,7 +141,7 @@ class CodeplusGroup {
     // this.onTabShown(this.tabs[index], this.instances[index]);
 
     if (remember && this.rememberTabSelections && this.tabs.length > 1) {
-      const name = this.instances[index].getNavName();
+      const name = this.instances[index].getRememberName();
       setRememberedTab(name);
       this.onRememberTabSelection(name);
     }
@@ -206,7 +214,7 @@ class CodeplusGroup {
     var foundTab = false;
     for (const rememberedTab of rememberedTabs) {
       for (let i = 0; i < this.instances.length; i++) {
-        if (this.instances[i].getNavName() === rememberedTab) {
+        if (this.instances[i].getRememberName() === rememberedTab) {
           this.showTab(i);
           foundTab = true;
         }
@@ -332,7 +340,7 @@ class Codeplus {
     // Make all visible groups show the same tab if it exists
     this.groups.forEach((group) => {
       const index = group.instances.findIndex(
-        (instance) => instance.getNavName() === name
+        (instance) => instance.getRememberName() === name
       );
       if (index !== -1) {
         group.showTab(index);
