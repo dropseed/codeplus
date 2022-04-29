@@ -6,6 +6,8 @@ Add interactive elements to your `<code>` without a bunch of custom markup or Ja
 - tabs and tab groups (with "remember tab selection")
 - copy button
 
+![CleanShot 2022-04-29 at 10 08 41](https://user-images.githubusercontent.com/649496/165995663-91479c8c-e49a-4d3b-ab9f-2e0a044301fe.gif)
+
 The key to codeplus is that you don't have to do much to make it work,
 and your code blocks also look fine when it's not in use.
 If you're writing docs in markdown,
