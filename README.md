@@ -3,7 +3,7 @@
 Add interactive elements to your `<code>` without a bunch of custom markup or JavaScript.
 
 - filenames
-- tabs
+- tabs and tab groups (with "remember tab selection")
 - copy button
 
 The key to codeplus is that you don't have to do much to make it work,
@@ -18,6 +18,10 @@ you get an extra layer of interactivity just by adding `codeplus` on top.
 This library does not do syntax highlighting!
 That means you can use any server-side (or client-side) syntax highlighter you want and codeplus will add the interactive features after the fact.
 
+## Features
+
+### Filenames
+
 To render filenames all you need to do is start your code block with a comment line that says the filename:
 
 ```yaml
@@ -30,6 +34,8 @@ When codeplus runs, you'll get something like this:
 
 <img width="718" alt="CleanShot 2022-04-29 at 12 24 58@2x" src="https://user-images.githubusercontent.com/649496/165993479-c4b051b8-28ab-4874-bf41-cad379af4229.png">
 
+### Tab display name
+
 You can also change the display name by using parentheses after the filename:
 
 ```yaml
@@ -41,6 +47,8 @@ groups: ...
 With codeplus:
 
 <img width="704" alt="CleanShot 2022-04-29 at 12 25 11@2x" src="https://user-images.githubusercontent.com/649496/165993506-1dbb33b5-89e9-4fd6-8f02-99ab32d16e8c.png">
+
+### Tab groups
 
 To get a group of tabs, just use the same pattern followed by a `- <group identifider>`:
 
@@ -60,10 +68,22 @@ With codeplus:
 
 <img width="711" alt="CleanShot 2022-04-29 at 12 25 36@2x" src="https://user-images.githubusercontent.com/649496/165993539-b8f5a86f-d5e6-4ae4-a038-e8c11ebaf75f.png">
 
+### Copy button
 
 The copy/paste button is added to all code blocks by default (shown on hover in this example):
 
 <img width="715" alt="CleanShot 2022-04-29 at 12 26 55@2x" src="https://user-images.githubusercontent.com/649496/165993684-2ddd8770-1741-4222-8d88-1abeaa885185.png">
+
+### Remember tab selection
+
+A nice use of tabs is to separate examples by language or ecosystem.
+If you're browsing docs in "Python" mode for example,
+you probably want to see the Python tab on every page you visit.
+
+We can do this for you with localStorage:
+
+![CleanShot 2022-04-29 at 10 25 41](https://user-images.githubusercontent.com/649496/165994437-1eb3f42a-d848-4190-a388-9f8b2a11deff.gif)
+
 
 ## Installation
 
