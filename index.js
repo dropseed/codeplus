@@ -115,6 +115,8 @@ class CodeplusGroup {
     // this.onTabShown = options.onTabShown;
     this.renderTab = options.renderTab;
     this.rememberTabSelections = options.rememberTabSelections;
+
+    this.onRememberTabSelection = options.onRememberTabSelection;
   }
   showTab(index, remember) {
     this.instances.forEach((instance, i) => {
@@ -131,7 +133,9 @@ class CodeplusGroup {
     // this.onTabShown(this.tabs[index], this.instances[index]);
 
     if (remember && this.rememberTabSelections && this.tabs.length > 1) {
-      setRememberedTab(this.instances[index].getNavName());
+      const name = this.instances[index].getNavName();
+      setRememberedTab(name);
+      this.onRememberTabSelection(name);
     }
   }
   render() {
@@ -297,6 +301,9 @@ class Codeplus {
       renderTab: this.renderTab,
       // onTabShown: this.onTabShown,
       rememberTabSelections: this.rememberTabSelections,
+
+      // (Not an option)
+      onRememberTabSelection: this.onRememberTabSelection.bind(this),
     };
 
     const codeGroups = Object.keys(groups)
@@ -320,6 +327,17 @@ class Codeplus {
     let style = document.createElement("style");
     style.innerHTML = css;
     document.head.appendChild(style);
+  }
+  onRememberTabSelection(name) {
+    // Make all visible groups show the same tab if it exists
+    this.groups.forEach((group) => {
+      const index = group.instances.findIndex(
+        (instance) => instance.getNavName() === name
+      );
+      if (index !== -1) {
+        group.showTab(index);
+      }
+    });
   }
 }
 

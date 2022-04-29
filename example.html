@@ -10,13 +10,29 @@
     window.addEventListener('load', function() {
         new Codeplus({
             debug: true,
+            rememberTabSelections: true,
         }).render();
     });
     </script>
 </head>
 <body>
     <pre><code>
-// filename.js
+// filename.js (GitHub) - one
+console.log("hey!")
+    </code></pre>
+
+    <pre><code>
+// filename.js (Bitbucket) - one
+console.log("hey!")
+    </code></pre>
+
+    <pre><code>
+// filename.js (GitHub) - two
+console.log("hey!")
+    </code></pre>
+
+    <pre><code>
+// filename.js (Bitbucket) - two
 console.log("hey!")
     </code></pre>
 </body>
