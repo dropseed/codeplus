@@ -3,7 +3,7 @@
  */
 
 import parse from "./parse";
-import {CodeplusInstance} from "./index"
+import { CodeplusInstance } from "./index";
 
 test("parse filename", () => {
   const parsed = parse("# filename.js\nfunction foo() {}");
@@ -42,7 +42,9 @@ test("parse filename and display", () => {
 });
 
 test("parse filename, display, group", () => {
-  const parsed = parse("# filename.js (GitHub with spaces) - group example\nfunction foo() {}");
+  const parsed = parse(
+    "# filename.js (GitHub with spaces) - group example\nfunction foo() {}"
+  );
   expect(parsed).toEqual({
     filename: "filename.js",
     displayName: "GitHub with spaces",
