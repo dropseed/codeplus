@@ -1,19 +1,5 @@
-// filename.js (Bitbucket)
-// filename.js (GitHub)
-
-// filename.py (Python)
-// filename.rb (Ruby)
-
-// filename.py
-// filename.rb
-
-// filename.py - Group example
-// filename.rb - Group example
-
 let debug = false;
 
-// Need basic layout styling, but avoid doing complex stuff with colors and borders?
-// leave that for the user
 const css = `
 .codeplus-nav {
     display: flex;
@@ -25,9 +11,6 @@ const css = `
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-}
-.codeplus-copy-btn svg {
-    margin-right: 0.5rem;
 }
 `;
 
