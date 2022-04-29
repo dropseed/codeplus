@@ -22,7 +22,7 @@ jobs:
         prepare_cmd: |
           npm version $NEXT_VERSION --no-git-tag-version --allow-same-version
         publish_cmd: |
-          npm ci
+          yarn install
           npm run build
           npm publish --access public
         github_token: ${{ secrets.GITHUB_TOKEN }}
