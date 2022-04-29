@@ -1,3 +1,5 @@
+import parse from "./parse";
+
 let debug = false;
 
 const css = `
@@ -13,39 +15,6 @@ const css = `
     right: 0.5rem;
 }
 `;
-
-function parse(code) {
-  let firstLine = code.trim().split("\n")[0];
-  let commentContents;
-  if (firstLine.startsWith("#")) {
-    commentContents = firstLine.substring(1).trim();
-  } else if (firstLine.startsWith("//")) {
-    commentContents = firstLine.substring(2).trim();
-  }
-
-  if (commentContents) {
-    //   TODO write tests for this
-    let regex = /(\S+\.\S+)\s*(\((\S+)\))?\s*(-\s+(.+))?/;
-    let match = regex.exec(commentContents);
-    // console.log(match)
-
-    if (debug) console.log("Parsed", commentContents, match);
-
-    if (match) {
-      return {
-        filename: match[1],
-        displayName: match[3],
-        groupName: match[5],
-      };
-    }
-  }
-
-  return {
-    filename: "",
-    displayName: "",
-    groupName: "",
-  };
-}
 
 class CodeplusInstance {
   constructor(node, options) {
