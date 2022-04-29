@@ -26,6 +26,10 @@ version: 3
 groups: ...
 ```
 
+When codeplus runs, you'll get something like this:
+
+<img width="718" alt="CleanShot 2022-04-29 at 12 24 58@2x" src="https://user-images.githubusercontent.com/649496/165993479-c4b051b8-28ab-4874-bf41-cad379af4229.png">
+
 You can also change the display name by using parentheses after the filename:
 
 ```yaml
@@ -33,6 +37,10 @@ You can also change the display name by using parentheses after the filename:
 version: 3
 groups: ...
 ```
+
+With codeplus:
+
+<img width="704" alt="CleanShot 2022-04-29 at 12 25 11@2x" src="https://user-images.githubusercontent.com/649496/165993506-1dbb33b5-89e9-4fd6-8f02-99ab32d16e8c.png">
 
 To get a group of tabs, just use the same pattern followed by a `- <group identifider>`:
 
@@ -48,6 +56,10 @@ version: 3
 groups: ...
 ```
 
+With codeplus:
+
+<img width="711" alt="CleanShot 2022-04-29 at 12 25 36@2x" src="https://user-images.githubusercontent.com/649496/165993539-b8f5a86f-d5e6-4ae4-a038-e8c11ebaf75f.png">
+
 ## Installation
 
 ```sh
@@ -61,6 +73,11 @@ window.addEventListener('load', function() {
     new Codeplus({}).render();
 });
 ```
+
+The copy/paste button is added to all code blocks by default (shown on hover in this example):
+
+<img width="715" alt="CleanShot 2022-04-29 at 12 26 55@2x" src="https://user-images.githubusercontent.com/649496/165993684-2ddd8770-1741-4222-8d88-1abeaa885185.png">
+
 
 ### CDN
 
