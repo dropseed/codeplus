@@ -361,4 +361,4 @@ class Codeplus {
   }
 }
 
-window.Codeplus = Codeplus;
+export default Codeplus;

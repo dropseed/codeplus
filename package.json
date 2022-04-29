@@ -5,12 +5,13 @@
   "license": "MIT",
   "description": "Make your code elements interactive.",
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
   "scripts": {
-    "build": "rm -rf dist && parcel build codeplus.js",
-    "watch": "parcel watch codeplus.js",
-    "format": "prettier --write codeplus.js",
+    "build": "rm -rf dist && parcel build browser.js",
+    "watch": "parcel watch browser.js",
+    "format": "prettier --write browser.js",
     "pre-commit": "prettier --check *.js"
   },
   "devDependencies": {
