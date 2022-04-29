@@ -2,9 +2,9 @@ export default function parse(code) {
   let firstLine = code.trim().split("\n")[0];
   let commentContents;
   if (firstLine.startsWith("#")) {
-    commentContents = firstLine.substring(1).trim();
+    commentContents = firstLine.substring(1).trimStart();
   } else if (firstLine.startsWith("//")) {
-    commentContents = firstLine.substring(2).trim();
+    commentContents = firstLine.substring(2).trimStart();
   }
 
   if (commentContents) {

@@ -67,9 +67,9 @@ export class CodeplusInstance {
   render() {
     // Yank the first line if we got something from it
     if (this.hasNav()) {
-      this.codeNode.innerHTML = this.codeNode.innerHTML.substring(
-        this.codeNode.innerHTML.indexOf("\n") + 1
-      );
+      this.codeNode.innerHTML = this.codeNode.innerHTML
+        .trimStart()
+        .substring(this.codeNode.innerHTML.trimStart().indexOf("\n") + 1);
     }
 
     // Add a class for styling
