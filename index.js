@@ -66,7 +66,12 @@ function parse(code) {
 
 class CodeplusInstance {
   constructor(node, options) {
-    this.containerNode = node;
+    if (node.parentNode.tagName === "PRE") {
+      // Automatically detect if we're in a pre tag
+      this.containerNode = node.parentNode;
+    } else {
+      this.containerNode = node;
+    }
 
     if (node.tagName === "CODE") {
       this.codeNode = node;
