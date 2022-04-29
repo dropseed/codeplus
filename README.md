@@ -52,16 +52,16 @@ With codeplus:
 
 ### Tab groups
 
-To get a group of tabs, just use the same pattern followed by a `- <group identifider>`:
+To get a group of tabs, just put the code blocks right next to each other:
 
 ```yaml
-# .pullapprove.yml (GitHub) - Example group
+# (GitHub)
 version: 3
 groups: ...
 ```
 
 ```yaml
-# .pullapprove.yml (Bitbucket) - Example group
+# (Bitbucket)
 version: 3
 groups: ...
 ```
