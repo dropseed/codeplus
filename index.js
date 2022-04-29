@@ -116,7 +116,7 @@ class CodeplusGroup {
     this.renderTab = options.renderTab;
     this.rememberTabSelections = options.rememberTabSelections;
   }
-  showTab(index) {
+  showTab(index, remember) {
     this.instances.forEach((instance, i) => {
       if (i === index) {
         instance.containerNode.style.display = "block";
@@ -130,7 +130,7 @@ class CodeplusGroup {
     });
     // this.onTabShown(this.tabs[index], this.instances[index]);
 
-    if (this.rememberTabSelections && this.tabs.length > 1) {
+    if (remember && this.rememberTabSelections && this.tabs.length > 1) {
       setRememberedTab(this.instances[index].getNavName());
     }
   }
@@ -161,7 +161,7 @@ class CodeplusGroup {
         // Only render a tab if we have a name for it
         navTab.innerText = instance.getNavName();
         navTab.addEventListener("click", () => {
-          this.showTab(index);
+          this.showTab(index, true);
         });
         this.renderTab(navTab, instance);
         this.tabs.push(navTab);
