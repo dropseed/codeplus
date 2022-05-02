@@ -290,8 +290,9 @@ class Codeplus {
         group.push(instances[i]);
       } else {
         if (
+          instances[i].hasNav() &&
           instances[i].containerNode.previousElementSibling ===
-          group[group.length - 1].containerNode
+            group[group.length - 1].containerNode
         ) {
           group.push(instances[i]);
         } else {
