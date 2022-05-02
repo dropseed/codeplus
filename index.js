@@ -1,7 +1,5 @@
 import parse from "./parse";
 
-let debug = false;
-
 const css = `
 .codeplus-nav {
     display: flex;
@@ -250,7 +248,7 @@ function setRememberedTab(name) {
 
 class Codeplus {
   constructor(options) {
-    debug = options.debug || false;
+    this.debug = options.debug || false;
 
     this.selector = options.selector || "pre > code";
 
@@ -270,7 +268,7 @@ class Codeplus {
 
     this.domNodes = document.querySelectorAll(this.selector);
 
-    if (debug) console.log("Codeplus DOM nodes selected", this.domNodes);
+    if (this.debug) console.log("Codeplus DOM nodes selected", this.domNodes);
 
     this.groups = this.getGroups(
       Array.from(this.domNodes).map(
@@ -291,7 +289,6 @@ class Codeplus {
       if (group.length === 0) {
         group.push(instances[i]);
       } else {
-        console.log(instances[i].containerNode.previousElementSibling);
         if (
           instances[i].containerNode.previousElementSibling ===
           group[group.length - 1].containerNode
@@ -326,7 +323,7 @@ class Codeplus {
       (instances) => new CodeplusGroup(instances, groupOptions)
     );
 
-    if (debug) console.log("Codeplus groups", codeGroups);
+    if (this.debug) console.log("Codeplus groups", codeGroups);
 
     return codeGroups;
   }
