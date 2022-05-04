@@ -5,8 +5,32 @@
 import parse from "./parse";
 import { CodeplusInstance } from "./index";
 
-test("parse filename", () => {
+test("parse # filename", () => {
   const parsed = parse("# filename.js\nfunction foo() {}");
+  expect(parsed).toEqual({
+    filename: "filename.js",
+    displayName: "",
+  });
+});
+
+test("parse // filename", () => {
+  const parsed = parse("// filename.js\nfunction foo() {}");
+  expect(parsed).toEqual({
+    filename: "filename.js",
+    displayName: "",
+  });
+});
+
+test("parse /* filename", () => {
+  const parsed = parse("/* filename.js */\nfunction foo() {}");
+  expect(parsed).toEqual({
+    filename: "filename.js",
+    displayName: "",
+  });
+});
+
+test("parse <!-- filename", () => {
+  const parsed = parse("<!-- filename.js -->\nfunction foo() {}");
   expect(parsed).toEqual({
     filename: "filename.js",
     displayName: "",

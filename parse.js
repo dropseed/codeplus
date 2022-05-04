@@ -5,6 +5,10 @@ export default function parse(code) {
     commentContents = firstLine.substring(1).trimStart();
   } else if (firstLine.startsWith("//")) {
     commentContents = firstLine.substring(2).trimStart();
+  } else if (firstLine.startsWith("/*")) {
+    commentContents = firstLine.substring(2).trimStart();
+  } else if (firstLine.startsWith("<!--")) {
+    commentContents = firstLine.substring(4).trimStart();
   }
 
   if (commentContents) {
