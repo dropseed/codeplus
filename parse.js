@@ -12,7 +12,7 @@ export default function parse(code) {
   }
 
   if (commentContents) {
-    let regex = /^(\S+\.\S+)?\s*(\(([^\)]+)\))?/;
+    let regex = /^(\S*\.\S+)?\s*(\(([^\)]+)\))?/;
     let match = regex.exec(commentContents);
 
     if (match) {

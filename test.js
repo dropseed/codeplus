@@ -6,58 +6,65 @@ import parse from "./parse";
 import { CodeplusInstance } from "./index";
 
 test("parse # filename", () => {
-  const parsed = parse("# filename.js\nfunction foo() {}");
-  expect(parsed).toEqual({
+  expect(parse("# filename.js\nfunction foo() {}")).toEqual({
     filename: "filename.js",
     displayName: "",
   });
 });
 
 test("parse // filename", () => {
-  const parsed = parse("// filename.js\nfunction foo() {}");
-  expect(parsed).toEqual({
+  expect(parse("// filename.js\nfunction foo() {}")).toEqual({
     filename: "filename.js",
     displayName: "",
   });
 });
 
 test("parse /* filename", () => {
-  const parsed = parse("/* filename.js */\nfunction foo() {}");
-  expect(parsed).toEqual({
+  expect(parse("/* filename.js */\nfunction foo() {}")).toEqual({
     filename: "filename.js",
     displayName: "",
   });
 });
 
 test("parse <!-- filename", () => {
-  const parsed = parse("<!-- filename.js -->\nfunction foo() {}");
-  expect(parsed).toEqual({
+  expect(parse("<!-- filename.js -->\nfunction foo() {}")).toEqual({
     filename: "filename.js",
     displayName: "",
   });
 });
 
 test("parse filename multiple dots", () => {
-  const parsed = parse("# test.filename.template.js\nfunction foo() {}");
-  expect(parsed).toEqual({
+  expect(parse("# test.filename.template.js\nfunction foo() {}")).toEqual({
     filename: "test.filename.template.js",
+    displayName: "",
+  });
+
+  expect(
+    parse("# test.filename.template.js (Display)\nfunction foo() {}")
+  ).toEqual({
+    filename: "test.filename.template.js",
+    displayName: "Display",
+  });
+});
+
+test("parse dotfile name", () => {
+  expect(parse("# .env\nfunction foo() {}")).toEqual({
+    filename: ".env",
     displayName: "",
   });
 });
 
 test("parse display without filename", () => {
-  const parsed = parse("# (GitHub with spaces)\nfunction foo() {}");
-  expect(parsed).toEqual({
+  expect(parse("# (GitHub with spaces)\nfunction foo() {}")).toEqual({
     filename: "",
     displayName: "GitHub with spaces",
   });
 });
 
 test("parse filename and display", () => {
-  const parsed = parse(
-    "# filename.js (GitHub with spaces) - more here\nfunction foo() {}"
-  );
-  expect(parsed).toEqual({
+  expect(
+    parse("# filename.js (GitHub with spaces) - more here\nfunction foo() {}")
+  ).toEqual({
     filename: "filename.js",
     displayName: "GitHub with spaces",
   });
