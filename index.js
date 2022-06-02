@@ -144,6 +144,8 @@ class CodeplusGroup {
     }
   }
   render() {
+    if (this.instances.length === 0) return;
+
     let groupDiv = document.createElement("div");
     groupDiv.className = "codeplus codeplus-group " + this.groupClass;
 
@@ -269,8 +271,6 @@ class Codeplus {
     this.domNodes = document.querySelectorAll(this.selector);
 
     if (this.debug) console.log("Codeplus DOM nodes selected", this.domNodes);
-
-    if (this.domNodes.length === 0) return;
 
     this.groups = this.getGroups(
       Array.from(this.domNodes).map(
