@@ -270,6 +270,8 @@ class Codeplus {
 
     if (this.debug) console.log("Codeplus DOM nodes selected", this.domNodes);
 
+    if (this.domNodes.length === 0) return;
+
     this.groups = this.getGroups(
       Array.from(this.domNodes).map(
         (node) =>
