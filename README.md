@@ -112,7 +112,7 @@ window.addEventListener('load', function() {
 ### CDN
 
 ```html
-<script src="https://unpkg.com/@dropseed/codeplus@0.2.0/dist/browser.js"></script>
+<script src="https://unpkg.com/@dropseed/codeplus@0.2.0/dist/codeplus.js"></script>
 <script>
 window.addEventListener("load", function() {
     new Codeplus({}).render();
