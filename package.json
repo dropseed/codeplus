@@ -1,6 +1,6 @@
 {
   "name": "@dropseed/codeplus",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "author": "Dave Gaeddert <dave.gaeddert@dropseed.dev>",
   "license": "MIT",
   "description": "Make your code elements interactive.",
