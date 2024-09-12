@@ -9,8 +9,8 @@
     "index.js"
   ],
   "scripts": {
-    "build": "rm -rf dist && parcel build browser.js",
-    "watch": "parcel watch browser.js",
+    "build": "rm -rf dist && parcel build codeplus.js",
+    "watch": "parcel watch codeplus.js",
     "format": "prettier --write *.js",
     "pre-commit": "prettier --check *.js && npm run test",
     "test": "jest"
