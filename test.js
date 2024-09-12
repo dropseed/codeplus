@@ -9,6 +9,7 @@ test("parse # filename", () => {
   expect(parse("# filename.js\nfunction foo() {}")).toEqual({
     filename: "filename.js",
     displayName: "",
+    url: "",
   });
 });
 
@@ -16,6 +17,7 @@ test("parse // filename", () => {
   expect(parse("// filename.js\nfunction foo() {}")).toEqual({
     filename: "filename.js",
     displayName: "",
+    url: "",
   });
 });
 
@@ -23,6 +25,7 @@ test("parse /* filename", () => {
   expect(parse("/* filename.js */\nfunction foo() {}")).toEqual({
     filename: "filename.js",
     displayName: "",
+    url: "",
   });
 });
 
@@ -30,6 +33,7 @@ test("parse <!-- filename", () => {
   expect(parse("<!-- filename.js -->\nfunction foo() {}")).toEqual({
     filename: "filename.js",
     displayName: "",
+    url: "",
   });
 });
 
@@ -37,6 +41,7 @@ test("parse filename multiple dots", () => {
   expect(parse("# test.filename.template.js\nfunction foo() {}")).toEqual({
     filename: "test.filename.template.js",
     displayName: "",
+    url: "",
   });
 
   expect(
@@ -44,6 +49,7 @@ test("parse filename multiple dots", () => {
   ).toEqual({
     filename: "test.filename.template.js",
     displayName: "Display",
+    url: "",
   });
 });
 
@@ -51,6 +57,7 @@ test("parse dotfile name", () => {
   expect(parse("# .env\nfunction foo() {}")).toEqual({
     filename: ".env",
     displayName: "",
+    url: "",
   });
 });
 
@@ -58,6 +65,15 @@ test("parse display without filename", () => {
   expect(parse("# (GitHub with spaces)\nfunction foo() {}")).toEqual({
     filename: "",
     displayName: "GitHub with spaces",
+    url: "",
+  });
+});
+
+test("parse link display without filename", () => {
+  expect(parse("# [GitHub with spaces](https://example.com)\nfunction foo() {}")).toEqual({
+    filename: "",
+    displayName: "GitHub with spaces",
+    url: "https://example.com",
   });
 });
 
@@ -67,6 +83,17 @@ test("parse filename and display", () => {
   ).toEqual({
     filename: "filename.js",
     displayName: "GitHub with spaces",
+    url: "",
+  });
+});
+
+test("parse filename and link display", () => {
+  expect(
+    parse("# filename.js [GitHub with spaces](https://example.com) - more here\nfunction foo() {}")
+  ).toEqual({
+    filename: "filename.js",
+    displayName: "GitHub with spaces",
+    url: "https://example.com",
   });
 });
 

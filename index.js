@@ -37,6 +37,7 @@ export class CodeplusInstance {
 
     this.filename = parsed.filename;
     this.displayName = parsed.displayName;
+    this.url = parsed.url;
   }
   getNavName() {
     if (this.filename && this.displayName) {
