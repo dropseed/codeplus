@@ -264,6 +264,8 @@ class Codeplus {
     this.inactiveTabClass = options.inactiveTabClass || "inactive";
     this.copyButtonClass = options.copyButtonClass || "";
 
+    this.nonce = options.nonce || null;
+
     // this.onTabShown = options.onTabShown || (() => {});
     this.renderTab = options.renderTab || (() => {});
     this.renderCopyButton = options.renderCopyButton || (() => {});
@@ -340,6 +342,9 @@ class Codeplus {
   insertCSS() {
     let style = document.createElement("style");
     style.innerHTML = css;
+    if (this.nonce) {
+      style.setAttribute("nonce", this.nonce);
+    }
     document.head.appendChild(style);
   }
   onRememberTabSelection(name) {
