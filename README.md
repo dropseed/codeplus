@@ -130,6 +130,8 @@ new Codeplus({
     rememberTabSelections: true,
     // Enable debug console.logs
     debug: false,
+    // CSP nonce for inline styles (required for Content Security Policy compatibility)
+    nonce: "your-csp-nonce-here",
     // Use classes to add styling (or look at the default CSS classes)
     instanceClass: "rounded-t-none group",
     navClass: "bg-black rounded-t overflow-hidden",
